@@ -1,0 +1,90 @@
+//
+// DESCRIPTIVE GALLERY
+//
+// http://jossmac.github.io/react-images/
+
+.descriptiveGallery {
+  overflow: hidden;
+  clear: both;
+
+  margin: $gap-mobile-normal 0 ($gap-mobile-normal * 2);
+  @include breakpoint(breakpoint-mobile-landscape) {
+    margin: $gap-mobile-normal 0;
+  }
+  @include breakpoint(breakpoint-tablet-portrait) {
+    margin: $gap-tablet-normal 0;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    margin: $gap-desktop-normal 0;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    margin: $gap-desktopL-normal 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .descriptiveGalleryItem {
+    @include transition(border-color $animation-general);
+    display: inline-block;
+    overflow: hidden;
+    border: 3px solid $color-font-regular;
+
+    @include breakpoint(breakpoint-mobile-landscape) {
+      margin-right: $gap-mobile-normal;
+      float: left;
+    }
+    @include breakpoint(breakpoint-tablet-portrait) {
+      margin-right: $gap-tablet-normal;
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      margin-right: $gap-desktop-normal;
+      border-width: 5px;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      margin-right: $gap-desktopL-normal;
+    }
+    &:hover,
+    &:active {
+      border-color: $color-active;
+    }
+    img {
+      display: block;
+
+      width: 100%;
+      @include breakpoint(breakpoint-mobile-landscape) {
+        width: 150px;
+      }
+      @include breakpoint(breakpoint-tablet-portrait) {
+        width: 180px;
+      }
+      @include breakpoint(breakpoint-desktop-small) {
+        width: 200px;
+      }
+      @include breakpoint(breakpoint-desktop-large) {
+        width: 230px;
+      }
+    }
+  }
+
+  h4 {
+    margin-bottom: 0;
+    @include breakpoint(breakpoint-mobile-landscape) {
+      margin-bottom: $gap-mobile-small;
+    }
+    @include breakpoint(breakpoint-tablet-portrait) {
+      margin-bottom: $gap-tablet-small;
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      margin-bottom: $gap-desktop-small;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      margin-bottom: $gap-desktopL-small;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+

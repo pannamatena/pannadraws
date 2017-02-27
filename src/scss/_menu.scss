@@ -1,0 +1,208 @@
+//
+// MENU
+//
+
+.header {
+  @include transition(background $animation-general);
+
+  &.open {
+    background: $color-dark-background;
+    @include breakpoint(breakpoint-tablet-landscape) {
+      background: $color-light-background;
+    }
+    .logo {
+      display: none;
+      @include breakpoint(breakpoint-tablet-landscape) {
+        display: block;
+      }
+    }
+  }
+}
+
+.menuContainer {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(flex-end);
+  @include justify-content(center);
+}
+
+.menuOpener {
+  display: block;
+  background: url(../img/btn_menu_opener.svg) top left no-repeat;
+  background-size: $element-size ($element-size * 2);
+  width: $element-size;
+  height: $element-size;
+  position: absolute;
+  top: $gap-mobile-normal;
+  right: $gap-mobile-normal;
+  z-index: 20;
+  transition: all $animation-general;
+  @include breakpoint(breakpoint-tablet-landscape) {
+    display: none;
+  }
+}
+
+$menu-height-mobile: 145px;
+$menu-height-tablet: 165px;
+.topMenu {
+  @include transition(height $animation-general);
+  @include display(flex);
+  @include justify-content(flex-end);
+
+  height: 0;
+  padding: 0;
+  @include flex-direction(column);
+  @include align-items(flex-end);
+  position: absolute;
+  top: calc(#{($gap-mobile-normal * 2) + $element-size - 1px});
+  right: 0;
+  width: 100%;
+  background: $color-dark-background;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    top: calc(#{($gap-tablet-normal * 2) + $element-size - 1px});
+  }
+  @include breakpoint(breakpoint-tablet-landscape) {
+    height: auto;
+    @include flex-direction(row);
+    @include align-items(center);
+    position: initial;
+    top: auto;
+    right: auto;
+    background: transparent;
+    padding: 0;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-size: $font-size-large;
+
+    display: none;
+    color: $color-font-light;
+    padding-bottom: $gap-mobile-small;
+    @include breakpoint(breakpoint-tablet-portrait) {
+      padding-bottom: $gap-tablet-small;
+    }
+    @include breakpoint(breakpoint-tablet-landscape) {
+      display: block;
+      color: $color-font-regular;
+      padding-bottom: 0;
+      padding-right: $gap-tablet-small;
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      padding-right: $gap-desktop-small;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      padding-right: $gap-desktopL-small;
+    }
+    &:last-child {
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+    &:hover {
+      color: $color-active;
+    }
+    &:active {
+      color: darken($color-active, 5%);
+    }
+    &.stickyLink {
+      @include breakpoint(breakpoint-tablet-landscape) {
+        display: none;
+      }
+      .stickyHeader & {
+        display: none;
+        @include breakpoint(breakpoint-tablet-landscape) {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+  &.open {
+    height: $menu-height-mobile;
+    padding: 0 $gap-mobile-normal $gap-mobile-normal;
+    @include breakpoint(breakpoint-tablet-portrait) {
+      height: $menu-height-tablet;
+      padding: 0 $gap-tablet-normal $gap-tablet-normal;
+    }
+    @include breakpoint(breakpoint-tablet-landscape) {
+      height: auto;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      &.stickyLink {
+        @include breakpoint(breakpoint-tablet-landscape) {
+          display: none;
+        }
+        .stickyHeader & {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.mainMenu {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  position: absolute;
+  left: 50%;
+
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+  @include flex-direction(column);
+  @include breakpoint(breakpoint-tablet-portrait) {
+    @include flex-direction(row);
+    @include transform(translate(-50%, 0));
+    top: 110px;
+  }
+  @include breakpoint(breakpoint-tablet-landscape) {
+    top: 120px;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    top: 160px;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    top: 180px;
+  }
+
+  a {
+    font-family: $font-family-secondary;
+    color: $color-font-regular;
+    &:hover {
+      color: $color-active;
+    }
+    &:active {
+      color: darken($color-active, 5%);
+    }
+
+    font-size: 200%;
+    @include breakpoint(breakpoint-tablet-portrait) {
+      font-size: 180%;
+    }
+    @include breakpoint(breakpoint-tablet-landscape) {
+      font-size: 220%;
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      font-size: 220%;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      font-size: 250%;
+    }
+  }
+  .separator {
+    margin: ($gap-mobile-small / 2) 0;
+    @include breakpoint(breakpoint-tablet-portrait) {
+      margin: 0 ($gap-tablet-small / 2);
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      margin: 0 ($gap-desktop-small / 2);
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      margin: 0 ($gap-desktopL-small / 2) 0;
+    }
+  }
+}

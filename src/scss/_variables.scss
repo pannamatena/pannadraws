@@ -1,0 +1,103 @@
+//
+// VARIABLES
+//
+
+// ==================================
+// BREAKPOINTS
+// ==================================
+$breakpoint-mobile-landscape: 'only screen and (min-width: 480px)';
+$breakpoint-tablet-portrait: 'only screen and (min-width: 600px)';
+$breakpoint-tablet-landscape: 'only screen and (min-width: 800px)';
+$breakpoint-desktop-small: 'only screen and (min-width: 1024px)';
+$breakpoint-desktop-large: 'only screen and (min-width: 1600px)';
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == breakpoint-mobile-landscape {
+    @media #{$breakpoint-mobile-landscape} {
+      @content;
+    }
+  } @else if $breakpoint == breakpoint-tablet-portrait {
+    @media #{$breakpoint-tablet-portrait} {
+      @content;
+    }
+  } @else if $breakpoint == breakpoint-tablet-landscape {
+    @media #{$breakpoint-tablet-landscape} {
+      @content;
+    }
+  } @else if $breakpoint == breakpoint-desktop-small {
+    @media #{$breakpoint-desktop-small} {
+      @content;
+    }
+  } @else if $breakpoint == breakpoint-desktop-large {
+    @media #{$breakpoint-desktop-large} {
+      @content;
+    }
+  }
+}
+
+$contentWidth-mobile: 100%;
+$contentWidth-tablet-portrait: 100%;
+$contentWidth-tablet-landscape: 750px;
+$contentWidth-desktop-small: 800px;
+$contentWidth-desktop-large: 1000px;
+
+// ==================================
+// GAPS
+// ==================================
+$gap-mobile-small: 10px;
+$gap-tablet-small: 10px;
+$gap-desktop-small: 15px;
+$gap-desktopL-small: 15px;
+
+$gap-mobile-normal: 10px;
+$gap-tablet-normal: 15px;
+$gap-desktop-normal: 20px;
+$gap-desktopL-normal: 20px;
+
+// ==================================
+// FONTS
+// ==================================
+$font-family-primary: 'source_sans_proregular', Helvetica, Arial, sans-serif;
+$font-family-secondary: 'luckiest_guyregular', Helvetica, Arial, sans-serif;
+
+$font-size-base-mobile: 12px;
+$font-size-base-tablet: 14px;
+$font-size-base-desktop: 16px;
+$font-size-base-desktopL: 18px;
+
+$font-size-small: 80%;
+$font-size-normal: 100%;
+$font-size-large: 120%;
+$font-size-xlarge: 140%;
+
+// ==================================
+// COLORS
+// ==================================
+$red: #d40707;
+$grey: #f5f5f5;
+$dark: #211e1c;
+$light: #fff;
+
+$color-light-background: $light;
+$color-dark-background: $dark;
+
+$color-font-regular: $dark;
+$color-font-light: $light;
+
+$color-active: $red;
+
+$color-font-link: $red;
+$color-font-link-hover: darken($red, 5%);
+$color-font-link-active: darken($red, 10%);
+
+// ==================================
+// OTHER
+// ==================================
+$animation-general: 0.4s ease;
+
+$element-size: 50px;
+
+$header-size-mobile: calc(#{($gap-mobile-normal * 2) + $element-size});
+$header-size-tablet: calc(#{($gap-tablet-normal * 2) + $element-size});
+$header-size-desktop: calc(#{($gap-desktop-normal * 2) + $element-size});
+$header-size-desktopL: calc(#{($gap-desktopL-normal * 2) + $element-size});

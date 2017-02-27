@@ -1,0 +1,10 @@
+{
+  "extends": "react-app",
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "no-script-url": 0
+  }
+}

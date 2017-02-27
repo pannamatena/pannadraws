@@ -1,0 +1,201 @@
+//
+// FONTS
+//
+
+@font-face {
+  font-family: 'luckiest_guyregular';
+  src: url('../fonts/luckiestguy-webfont.eot');
+  src: url('../fonts/luckiestguy-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/luckiestguy-webfont.woff') format('woff'),
+  url('../fonts/luckiestguy-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source_sans_proitalic';
+  src: url('../fonts/sourcesanspro-italic-webfont.eot');
+  src: url('../fonts/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-italic-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source_sans_proregular';
+  src: url('../fonts/sourcesanspro-regular-webfont.eot');
+  src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source_sans_probold';
+  src: url('../fonts/sourcesanspro-bold-webfont.eot');
+  src: url('../fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source_sans_probold_italic';
+  src: url('../fonts/sourcesanspro-bolditalic-webfont.eot');
+  src: url('../fonts/sourcesanspro-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sourcesanspro-bolditalic-webfont.woff') format('woff'),
+  url('../fonts/sourcesanspro-bolditalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: $font-family-primary;
+  color: $color-font-regular;
+
+  font-size: $font-size-base-mobile;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    font-size: $font-size-base-tablet;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    font-size: $font-size-base-desktop;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    font-size: $font-size-base-desktopL;
+  }
+}
+
+p {
+  font-size: $font-size-normal;
+  margin-bottom: $gap-mobile-normal;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    margin-bottom: $gap-tablet-normal;
+  }
+  @include breakpoint(breakpoint-tablet-landscape) {
+    margin-bottom: $gap-tablet-normal;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    margin-bottom: $gap-desktop-normal;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    margin-bottom: $gap-desktopL-normal;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h2 {
+  font-family: $font-family-secondary;
+  font-size: 200%;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    font-size: 220%;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    font-size: 280%;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    font-size: 350%;
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 120%;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    font-size: 140%;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    font-size: 160%;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    font-size: 200%;
+  }
+
+  span {
+    font-size: 80%;
+    @include breakpoint(breakpoint-mobile-landscape) {
+      font-size: 100%;
+    }
+  }
+}
+
+h4 {
+  font-size: $font-size-normal;
+  margin-bottom: $gap-mobile-small;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    margin-bottom: $gap-tablet-small;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    margin-bottom: $gap-desktop-small;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    margin-bottom: $gap-desktopL-small;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-font-link;
+  @include transition(color $animation-general);
+  &:hover {
+    text-decoration: none;
+    color: $color-font-link-hover;
+  }
+  &:active {
+    text-decoration: none;
+    color: $color-font-link-active;
+  }
+}
+
+.link-highlight {
+  display: block;
+  font-family: $font-family-secondary;
+  font-size: $font-size-large;
+  &:before {
+    content: '';
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  span {
+    font-family: $font-family-primary;
+  }
+
+  &.cv {
+    &:before {
+      background: url(../img/ico_doc.svg) bottom center no-repeat;
+      background-size: 14px 20px;
+    }
+  }
+
+  &.linkedin {
+    &:before {
+      background: url(../img/ico_set_contact.svg) bottom left no-repeat;
+      background-size: 20px 80px;
+    }
+  }
+
+  .contentIn & {
+    padding-bottom: $gap-mobile-small;
+    @include breakpoint(breakpoint-tablet-portrait) {
+      padding-bottom: $gap-tablet-small;
+    }
+    @include breakpoint(breakpoint-desktop-small) {
+      padding-bottom: $gap-desktop-small;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      padding-bottom: $gap-desktopL-small;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+}

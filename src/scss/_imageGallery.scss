@@ -1,0 +1,33 @@
+//
+// IMAGE GALLERY
+//
+// http://jossmac.github.io/react-images/
+
+.imageGallery {
+  overflow: hidden;
+  margin: $gap-mobile-normal 0;
+  @include breakpoint(breakpoint-tablet-portrait) {
+    margin: $gap-tablet-normal 0;
+  }
+  @include breakpoint(breakpoint-desktop-small) {
+    margin: $gap-desktop-normal 0;
+  }
+  @include breakpoint(breakpoint-desktop-large) {
+    margin: $gap-desktopL-normal 0;
+  }
+
+  .imageGalleryItem {
+    @include transition(border-color $animation-general);
+    display: inline-block;
+    overflow: hidden;
+    border: 3px solid $color-font-regular;
+    @include breakpoint(breakpoint-desktop-small) {
+      border-width: 5px;
+    }
+    &:hover,
+    &:active {
+      border-color: $color-active;
+    }
+  }
+
+}
