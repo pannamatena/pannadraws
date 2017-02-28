@@ -162,6 +162,12 @@ a {
     width: 20px;
     height: 20px;
     margin-right: 5px;
+    @include breakpoint(breakpoint-desktop-small) {
+      margin-top: 3px;
+    }
+    @include breakpoint(breakpoint-desktop-large) {
+      margin-top: 5px;
+    }
   }
 
   span {
@@ -177,8 +183,15 @@ a {
 
   &.linkedin {
     &:before {
-      background: url(../img/ico_set_contact.svg) bottom left no-repeat;
-      background-size: 20px 80px;
+      background: url(../img/ico_set_contact_red.svg) 0 -60px no-repeat;
+      background-size: 19px 118px;
+    }
+  }
+
+  &.git {
+    &:before {
+      background: url(../img/ico_set_contact_red.svg) 0 -100px no-repeat;
+      background-size: 19px 118px;
     }
   }
 

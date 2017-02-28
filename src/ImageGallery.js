@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ImageTiler from './ImageTiler';
 import Lightbox from 'react-images';
+import _ from 'lodash';
 
 class ImageGallery extends Component {
 
@@ -18,7 +19,6 @@ class ImageGallery extends Component {
 
     this.resizeTimer = null;
 
-    this.adjustContainerWidthDebounced = this.adjustContainerWidthDebounced.bind(this);
     this.adjustContainerWidth = this.adjustContainerWidth.bind(this);
     this.closeLightbox = this.closeLightbox.bind(this);
     this.goToNextImage = this.goToNextImage.bind(this);
@@ -35,6 +35,7 @@ class ImageGallery extends Component {
    * Adds event listener on component mount and calls the resize function.
    */
   componentDidMount () {
+    this.adjustContainerWidthDebounced = _.debounce(this.adjustContainerWidth, 100);
     window.addEventListener('resize', this.adjustContainerWidthDebounced);
     window.addEventListener('load', this.adjustContainerWidth);
     this.adjustContainerWidth();
@@ -46,17 +47,6 @@ class ImageGallery extends Component {
   componentWillUnmount () {
     window.removeEventListener('resize', this.adjustContainerWidthDebounced);
     window.removeEventListener('load', this.adjustContainerWidth);
-  }
-
-
-  /**
-   * Adjusts image container width with a 100 msec delay.
-   *
-   * @private
-   */
-  adjustContainerWidthDebounced () {
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(this.adjustContainerWidth, 100);
   }
 
   /**

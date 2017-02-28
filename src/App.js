@@ -442,8 +442,8 @@ class App extends Component {
                 <div className="aboutData">
                   <div className="aboutLinks">
                     <a className="link-highlight cv" href="/cv_panna_zsamba.pdf" target="_blank">Download CV <span>(433 Kb, PDF)</span></a>
-                    <a className="link-highlight linkedin" href="https://linkedin.com/in/pannazsamba" target="_blank">My
-                      LinkedIn</a>
+                    <a className="link-highlight linkedin" href="https://linkedin.com/in/pannazsamba" target="_blank">My LinkedIn</a>
+                    <a className="link-highlight git" href="https://github.com/pannamatena" target="_blank">My GitHub</a>
                   </div>
                   <div className="imgContainer"><img src={aboutImg} alt="Panna"/></div>
                 </div>

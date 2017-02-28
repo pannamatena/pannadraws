@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './img/logo.svg';
 import { animateScroll, scroller } from 'react-scroll';
-/*https://github.com/fisshy/react-scroll*/
 import ClickOutside from 'react-click-outside';
 
 class Header extends Component {
@@ -21,7 +20,7 @@ class Header extends Component {
     // we need to bind the function to 'this'.
     this.checkIfScreenIsScrolled = this.checkIfScreenIsScrolled.bind(this);
     this.toggleMenuOpen = this.toggleMenuOpen.bind(this);
-    this.createScrollToElementHandler = this.createScrollToElementHandler.bind(this);
+    this.createMenuItemClickHandler = this.createMenuItemClickHandler.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
 
@@ -78,7 +77,7 @@ class Header extends Component {
    * @returns {function} The scroll event handler
    * @private
    */
-  createScrollToElementHandler (elementName) {
+  createMenuItemClickHandler (elementName) {
     return () => {
       const offset = -this.refs.headerContainer.clientHeight;
       scroller.scrollTo(elementName, {
@@ -86,6 +85,7 @@ class Header extends Component {
         smooth: true,
         offset
       });
+      this.closeMenu();
     }
   }
 
@@ -114,15 +114,15 @@ class Header extends Component {
               <ClickOutside className="menuContainer" onClickOutside={this.closeMenu}>
                 <a id="_menuOpener" className="menuOpener" onClick={this.toggleMenuOpen} href="javascript:">&nbsp;</a>
                 <div id="_topMenu" className={'topMenu ' + (this.state.isMenuOpened ? 'open' : '')}>
-                  <a className="scrollLink stickyLink" onClick={this.createScrollToElementHandler('_graphicDesign')}
+                  <a className="scrollLink stickyLink" onClick={this.createMenuItemClickHandler('_graphicDesign')}
                      href="javascript:">Front-end dev</a>
-                  <a className="scrollLink stickyLink" onClick={this.createScrollToElementHandler('_graphicDesign')}
+                  <a className="scrollLink stickyLink" onClick={this.createMenuItemClickHandler('_graphicDesign')}
                      href="javascript:">Graphic design</a>
-                  <a className="scrollLink stickyLink" onClick={this.createScrollToElementHandler('_illustration')}
+                  <a className="scrollLink stickyLink" onClick={this.createMenuItemClickHandler('_illustration')}
                      href="javascript:">Illustration</a>
 
-                  <a className="scrollLink" onClick={this.createScrollToElementHandler('_about')} href="javascript:">About</a>
-                  <a className="scrollLink" onClick={this.createScrollToElementHandler('_contact')} href="javascript:">Contact</a>
+                  <a className="scrollLink" onClick={this.createMenuItemClickHandler('_about')} href="javascript:">About</a>
+                  <a className="scrollLink" onClick={this.createMenuItemClickHandler('_contact')} href="javascript:">Contact</a>
                 </div>
               </ClickOutside>
 
@@ -130,13 +130,13 @@ class Header extends Component {
           </div>
           <div id="_mainMenu"
                className={(this.state.isScrolled ? 'stickyHeader' : '') + ' mainMenu contentWidth'}> {/*hidden*/}
-            <a className="scrollLink" onClick={this.createScrollToElementHandler('_graphicDesign')} href="javascript:">Front-end
+            <a className="scrollLink" onClick={this.createMenuItemClickHandler('_graphicDesign')} href="javascript:">Front-end
               dev</a>
             <span className="separator">&nbsp;</span>
-            <a className="scrollLink first" onClick={this.createScrollToElementHandler('_graphicDesign')}
+            <a className="scrollLink first" onClick={this.createMenuItemClickHandler('_graphicDesign')}
                href="javascript:">Graphic design</a>
             <span className="separator">&nbsp;</span>
-            <a className="scrollLink" onClick={this.createScrollToElementHandler('_illustration')} href="javascript:">Illustration</a>
+            <a className="scrollLink" onClick={this.createMenuItemClickHandler('_illustration')} href="javascript:">Illustration</a>
           </div>
         </div>
     );
