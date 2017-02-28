@@ -10,6 +10,7 @@ $breakpoint-tablet-portrait: 'only screen and (min-width: 600px)';
 $breakpoint-tablet-landscape: 'only screen and (min-width: 800px)';
 $breakpoint-desktop-small: 'only screen and (min-width: 1024px)';
 $breakpoint-desktop-large: 'only screen and (min-width: 1600px)';
+$breakpoint-desktop-xlarge: 'only screen and (min-width: 2160px)';
 
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == breakpoint-mobile-landscape {
@@ -30,6 +31,10 @@ $breakpoint-desktop-large: 'only screen and (min-width: 1600px)';
     }
   } @else if $breakpoint == breakpoint-desktop-large {
     @media #{$breakpoint-desktop-large} {
+      @content;
+    }
+  } @else if $breakpoint == breakpoint-desktop-xlarge {
+    @media #{$breakpoint-desktop-xlarge} {
       @content;
     }
   }

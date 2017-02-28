@@ -113,6 +113,9 @@ body {
   @include breakpoint(breakpoint-desktop-large) {
     min-height: 890px;
   }
+  @include breakpoint(breakpoint-desktop-xlarge) {
+    background-position: 0 140px;
+  }
 
   .pageTopIn {
     @include flex(1);
@@ -121,6 +124,9 @@ body {
     @include breakpoint(breakpoint-tablet-portrait) {
       background: url(../img/figure.png) bottom right no-repeat;
       background-size: 70%;
+    }
+    @include breakpoint(breakpoint-desktop-xlarge) {
+      background-size: 60%;
     }
   }
 }

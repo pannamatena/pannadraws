@@ -227,10 +227,21 @@ class App extends Component {
     ];
     const projectPoweredNowImages = [
       '/development/poweredNow/gallery_pn_load.png',
+      '/development/poweredNow/gallery_pn_chart.png',
       '/development/poweredNow/gallery_pn_location.png',
       '/development/poweredNow/gallery_pn_location_m.png',
       '/development/poweredNow/gallery_pn_chat.png',
-      '/development/poweredNow/gallery_pn_chat_m.png'
+      '/development/poweredNow/gallery_pn_chat_m.png',
+      '/development/poweredNow/gallery_pn_contacts.png',
+      '/development/poweredNow/gallery_pn_contact_details.png',
+      '/development/poweredNow/gallery_pn_contact_details_m.png',
+      '/development/poweredNow/gallery_pn_edit_doclayout.png',
+      '/development/poweredNow/gallery_pn_edit_doclayout_m.png',
+      '/development/poweredNow/gallery_pn_sales.png',
+      '/development/poweredNow/gallery_pn_sales_m.png',
+      '/development/poweredNow/gallery_pn_tax_m.png',
+      '/development/poweredNow/gallery_pn_unsaved_note.png',
+
     ];
 
     return (
