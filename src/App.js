@@ -262,7 +262,7 @@ class App extends Component {
                     title="Powered Now"
                     year="2015 - (ongoing)"
                     url={{ urlTarget: 'http://web.powerednow.com', urlDisplay: 'web.powerednow.com' }}
-                    skills={['Wireframes', 'UI Design', 'Sass', 'Ext.js']}
+                    skills={['Ext.js', 'Sass', 'Wireframes', 'UI Design']}
                     description="A scheduling and invoicing software for field workers."
                     imageAlt="Powered Now"></DescriptiveGallery>
                 <DescriptiveGallery
@@ -271,7 +271,7 @@ class App extends Component {
                     title="Spring"
                     year="2016 - (ongoing)"
                     url={{ urlTarget: 'http://springcomic.com', urlDisplay: 'springcomic.com' }}
-                    skills={['UX/UI design', 'React Js', 'Sass']}
+                    skills={['React Js', 'Sass', 'UX/UI design']}
                     description="A visual fantasy novel written and illustrated by me."
                     imageAlt="Spring - A visual fantasy novel"></DescriptiveGallery>
               </div>
@@ -279,16 +279,20 @@ class App extends Component {
             <Element name="_graphicDesign" className="content content-dev">
               <div className="contentIn contentWidth">
                 <h2>Front-end Dev & Graphic Design</h2>
-                <h3><span>UI/UX</span><span className="separator">&nbsp;</span><span>Adobe stuff</span><span
-                    className="separator">&nbsp;</span><span>HTML</span><span className="separator">&nbsp;</span><span>CSS/SCSS</span><span
-                    className="separator">&nbsp;</span><span>Javascript</span></h3>
+                <h3>
+                  <span>Javascript</span><span className="separator">&nbsp;</span>
+                  <span>HTML</span><span className="separator">&nbsp;</span>
+                  <span>CSS/SCSS</span><span className="separator">&nbsp;</span>
+                  <span>UI/UX</span><span className="separator">&nbsp;</span>
+                  <span>Adobe stuff</span>
+                </h3>
                 <div className="projectHolder first">
                   <h3>Stuntman's Rampage Website</h3>
                   <h4>2015</h4>
                   <div className="skills">
+                    <div><span>HTML,Sass</span><span className="separator">&nbsp;</span></div>
                     <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
-                    <div><span>UI design</span><span className="separator">&nbsp;</span></div>
-                    <div><span>HTML,SCSS</span></div>
+                    <div><span>UI design</span></div>
                   </div>
                   <p>Stuntman's Rampage is a game using yards built in Crossyards.</p>
                   <ImageGallery
@@ -307,9 +311,10 @@ class App extends Component {
                   <h4>2015</h4>
                   <p><a href="http://crossyards.com" target="_blank">crossyards.com</a></p>
                   <div className="skills">
+                    <div><span>HTML,CSS</span><span className="separator">&nbsp;</span></div>
+                    <div><span>jQuery</span><span className="separator">&nbsp;</span></div>
                     <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
-                    <div><span>UI design</span><span className="separator">&nbsp;</span></div>
-                    <div><span>HTML,CSS</span></div>
+                    <div><span>UI design</span></div>
                   </div>
                   <p>A social website where you can share your thoughts by drawing them onto a rectangular area (yard)
                     using a simple paint tool in your browser.</p>
@@ -344,9 +349,10 @@ class App extends Component {
                   <h4>2015</h4>
                   <p><a href="http://lovetreealarm.com/" target="_blank">lovetreealarm.com</a></p>
                   <div className="skills">
+                    <div><span>HTML,CSS</span><span className="separator">&nbsp;</span></div>
+                    <div><span>jQuery</span><span className="separator">&nbsp;</span></div>
                     <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
-                    <div><span>UI design</span><span className="separator">&nbsp;</span></div>
-                    <div><span>HTML,CSS</span></div>
+                    <div><span>UI design</span></div>
                   </div>
                   <p>A social alarm app for Android.</p>
                   <ImageGallery
@@ -365,9 +371,10 @@ class App extends Component {
                   <h4>2015</h4>
                   <p><a href="http://springstorm.uk" target="_blank">springstorm.uk</a></p>
                   <div className="skills">
+                    <div><span>HTML,CSS</span><span className="separator">&nbsp;</span></div>
+                    <div><span>jQuery</span><span className="separator">&nbsp;</span></div>
                     <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
-                    <div><span>UI design</span><span className="separator">&nbsp;</span></div>
-                    <div><span>HTML,CSS</span></div>
+                    <div><span>UI design</span></div>
                   </div>
                   <p>A simple company landing page.</p>
                   <ImageGallery
@@ -386,10 +393,10 @@ class App extends Component {
                   <h4>2014</h4>
                   <p><a href="https://www.tappointment.com/" target="_blank">tappointment.com</a></p>
                   <div className="skills">
-                    <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
-                    <div><span>UI design</span><span className="separator">&nbsp;</span></div>
                     <div><span>HTML,CSS</span><span className="separator">&nbsp;</span></div>
-                    <div><span>jQuery</span></div>
+                    <div><span>jQuery, jQuery UI</span><span className="separator">&nbsp;</span></div>
+                    <div><span>Wireframes</span><span className="separator">&nbsp;</span></div>
+                    <div><span>UI design</span></div>
                   </div>
                   <p>Appointment management software for mobile and web.</p>
                   <ImageGallery
@@ -439,8 +446,7 @@ class App extends Component {
                       1024: { columns: 5, margin: 20, layout: 'left' }
                     }}
                 />
-                <p>This is not all, check the rest in my <a href="http://matena.deviantart.com/gallery/"
-                                                            target="_blank">deviantART gallery</a>.</p>
+                <p>This is not all, check the rest in my <a href="http://matena.deviantart.com/gallery/" target="_blank">deviantART gallery</a>.</p>
                 <p>Or check <a href="http://springcomic.com/" target="_blank">my comic project</a> for more art.</p>
 
               </div>
@@ -452,7 +458,7 @@ class App extends Component {
                 <h4>Front-end developer & UX/UI designer</h4>
                 <div className="aboutData">
                   <div className="aboutLinks">
-                    <a className="link-highlight cv" href="/cv_panna_zsamba.pdf" target="_blank">Download CV <span>(433 Kb, PDF)</span></a>
+                    <a className="link-highlight cv" href="/cv_panna_zsamba.pdf" target="_blank">Download CV <span>(266 Kb, PDF)</span></a>
                     <a className="link-highlight linkedin" href="https://linkedin.com/in/pannazsamba" target="_blank">My LinkedIn</a>
                     <a className="link-highlight git" href="https://github.com/pannamatena" target="_blank">My GitHub</a>
                   </div>
@@ -467,7 +473,7 @@ class App extends Component {
               <h2>Contact</h2>
               <p className="phone">+36 20 521 9379 <span className="details">(9 AM - 5 PM weekdays, GMT +1)</span></p>
               <p className="email"><a href="mailto:pannarajzol.design@gmail.com">pannarajzol.design@gmail.com</a></p>
-              <a className="link-highlight cv" href="/cv_panna_zsamba.pdf" target="_blank">Download CV <span>(433 Kb, PDF)</span></a>
+              <a className="link-highlight cv" href="/cv_panna_zsamba.pdf" target="_blank">Download CV <span>(266 Kb, PDF)</span></a>
               <p className="copy">Artwork, design and content &copy; Panna Zs&aacute;mba.</p>
             </div>
           </Element>
