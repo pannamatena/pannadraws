@@ -43,7 +43,7 @@ I have my breakpoints at 480px, 600px, 800px and 1024px, which stand for the scr
 Depending on the number of images you want to include you may define for each breakpoint how many columns and how big margin you want between the image tiles.
 The layout property currently supports `simple`, `right` and `left`. The `simple` layout is just a row of equally sized images, while `right` and `left` display a highlighted, large image on the appropriate side.
 ```
-<ImageGallery
+<ImageGalleryGrid
     images={[
       {
         imageThumb: '/development/crossyards/gallery_crossyards_1_thumb.png',
