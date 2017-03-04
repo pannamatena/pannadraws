@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import BrowserVersion from './BrowserVersion';
-import Header from './Header';
-import aboutImg from './img/about.png';
+import BrowserVersion from '../browser-version';
+import Header from './header';
+import aboutImg from '../img/about.png';
 import { Element } from 'react-scroll';
-import ImageGallery from './ImageGallery';
-import DescriptiveGallery from './DescriptiveGallery';
+import ImageGalleryGrid from './image-gallery-grid';
+import DescriptiveGallery from './descriptive-gallery';
+import { ImageTiler, ImageTilerLeft, ImageTilerRight } from '../image-tiler';
 
 class App extends Component {
 
@@ -19,6 +20,24 @@ class App extends Component {
     if (ieVersion && ieVersion < 12) {
       alert('Ooops, it looks like you\'re using Internet Explorer. As much as I like retro stuff, I don\'t support this browser, please use something else. (Browsers my site is tested in: Google Chrome, Mozilla Firefox and Safari on OSX)');
     }
+
+    this.getGridBreakpointProps = this.getGridBreakpointProps.bind(this);
+  }
+
+  /**
+   * Get the breakpoint properties for the image gallery grid
+   *
+   * @param imageTilerType - The image tiler class to be instantiated
+   * @return {Object} The grid properties for every breakpoint
+   */
+  getGridBreakpointProps (imageTilerType) {
+    return {
+      0: { columns: 2, margin: 10, imageTilerFactory: function () { return new ImageTiler(this.columns); } },
+      480: { columns: 3, margin: 10, imageTilerFactory: function () { return new imageTilerType(this.columns); } },
+      600: { columns: 4, margin: 15, imageTilerFactory: function () { return new imageTilerType(this.columns); } },
+      800: { columns: 4, margin: 15, imageTilerFactory: function () { return new imageTilerType(this.columns); } },
+      1024: { columns: 5, margin: 20, imageTilerFactory: function () { return new imageTilerType(this.columns); } }
+    };
   }
 
   /**
@@ -295,15 +314,9 @@ class App extends Component {
                     <div><span>UI design</span></div>
                   </div>
                   <p>Stuntman's Rampage is a game using yards built in Crossyards.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesStuntmansRampage}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'left' },
-                        600: { columns: 4, margin: 15, layout: 'left' },
-                        800: { columns: 4, margin: 15, layout: 'left' },
-                        1024: { columns: 5, margin: 20, layout: 'left' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTilerLeft)}
                   />
                 </div>
                 <div className="projectHolder">
@@ -318,30 +331,18 @@ class App extends Component {
                   </div>
                   <p>A social website where you can share your thoughts by drawing them onto a rectangular area (yard)
                     using a simple paint tool in your browser.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesCrossyards}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'right' },
-                        600: { columns: 4, margin: 15, layout: 'right' },
-                        800: { columns: 4, margin: 15, layout: 'right' },
-                        1024: { columns: 5, margin: 20, layout: 'right' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTilerRight)}
                   />
                 </div>
                 <div className="projectHolder">
                   <h3>Logos</h3>
                   <h4>2015-2016</h4>
                   <p>Various logos designed for people.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesLogos}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'simple' },
-                        600: { columns: 4, margin: 15, layout: 'simple' },
-                        800: { columns: 4, margin: 15, layout: 'simple' },
-                        1024: { columns: 5, margin: 20, layout: 'simple' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTiler)}
                   />
                 </div>
                 <div className="projectHolder">
@@ -355,15 +356,9 @@ class App extends Component {
                     <div><span>UI design</span></div>
                   </div>
                   <p>A social alarm app for Android.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesLovetreeAlarm}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'right' },
-                        600: { columns: 4, margin: 15, layout: 'right' },
-                        800: { columns: 4, margin: 15, layout: 'right' },
-                        1024: { columns: 5, margin: 20, layout: 'right' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTilerRight)}
                   />
                 </div>
                 <div className="projectHolder">
@@ -377,15 +372,9 @@ class App extends Component {
                     <div><span>UI design</span></div>
                   </div>
                   <p>A simple company landing page.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesSpringstorm}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'simple' },
-                        600: { columns: 4, margin: 15, layout: 'simple' },
-                        800: { columns: 4, margin: 15, layout: 'simple' },
-                        1024: { columns: 5, margin: 20, layout: 'simple' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTiler)}
                   />
                 </div>
                 <div className="projectHolder">
@@ -399,15 +388,9 @@ class App extends Component {
                     <div><span>UI design</span></div>
                   </div>
                   <p>Appointment management software for mobile and web.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesTappointment}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'left' },
-                        600: { columns: 4, margin: 15, layout: 'left' },
-                        800: { columns: 4, margin: 15, layout: 'left' },
-                        1024: { columns: 5, margin: 20, layout: 'left' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTilerLeft)}
                   />
                 </div>
                 <div className="projectHolder">
@@ -418,15 +401,9 @@ class App extends Component {
                     <div><span>UI design</span></div>
                   </div>
                   <p>A vocabulary app for Android.</p>
-                  <ImageGallery
+                  <ImageGalleryGrid
                       images={imagesWordLearning}
-                      breakPoints={{
-                        0: { columns: 2, margin: 10, layout: 'simple' },
-                        480: { columns: 3, margin: 10, layout: 'simple' },
-                        600: { columns: 4, margin: 15, layout: 'simple' },
-                        800: { columns: 4, margin: 15, layout: 'simple' },
-                        1024: { columns: 5, margin: 20, layout: 'simple' }
-                      }}
+                      breakPoints={this.getGridBreakpointProps(ImageTiler)}
                   />
                 </div>
               </div>
@@ -436,15 +413,9 @@ class App extends Component {
                 <h2>Illustration</h2>
                 <h3><span>Freehand</span><span className="separator">&nbsp;</span><span>Vector art</span><span
                     className="separator">&nbsp;</span><span>Digital 2D</span></h3>
-                <ImageGallery
+                <ImageGalleryGrid
                     images={imagesIllustrations}
-                    breakPoints={{
-                      0: { columns: 2, margin: 10, layout: 'simple' },
-                      480: { columns: 3, margin: 10, layout: 'left' },
-                      600: { columns: 4, margin: 15, layout: 'left' },
-                      800: { columns: 4, margin: 15, layout: 'left' },
-                      1024: { columns: 5, margin: 20, layout: 'left' }
-                    }}
+                    breakPoints={this.getGridBreakpointProps(ImageTilerLeft)}
                 />
                 <p>This is not all, check the rest in my <a href="http://matena.deviantart.com/gallery/" target="_blank">deviantART gallery</a>.</p>
                 <p>Or check <a href="http://springcomic.com/" target="_blank">my comic project</a> for more art.</p>

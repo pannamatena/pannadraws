@@ -2,12 +2,10 @@ class ImageTiler {
   /**
    * Creates an ImageTiler instance.
    *
-   * @param {string} layoutType - The layout type to be used ('left', 'right', 'simple')
    * @param {number} columns - The number of columns to use
    */
-  constructor (layoutType, columns) {
+  constructor (columns) {
     this.grid = {};
-    this.layoutType = layoutType;
     this.columns = columns;
   }
 
@@ -79,7 +77,7 @@ class ImageTiler {
    * @private
    */
   placeImageAtFreePosition (image, imageSize, isFromRight) {
-    const {x, y} = this.getFirstFreePosition(imageSize, isFromRight);
+    const {x, y} = this.getFirstFreePosition(isFromRight);
     this.occupyPlaceForImage({ x, y }, image, imageSize);
   }
 
@@ -158,63 +156,12 @@ class ImageTiler {
   }
 
   /**
-   * Places the given images in the grid.
+   * Places images in simple orientation (no large image in the grid, images come from left to right).
    *
    * @param images - Array of image data objects to be placed in the grid
    */
   placeImagesInGrid (images) {
-    switch (this.layoutType) {
-      case 'left':
-        this.placeImagesInLeftOrientation(images);
-        break;
-      case 'right':
-        this.placeImagesInRightOrientation(images);
-        break;
-      default:
-        this.placeImagesInSimpleOrientation(images);
-        break;
-    }
-  }
-
-  /**
-   * Places images in left orientation (the large image goes to the left side of the grid)
-   *
-   * @param images - Array of image data objects to be placed in the grid
-   * @private
-   */
-  placeImagesInLeftOrientation (images) {
-    images.forEach((image, idx) => {
-      if (idx === 0) {
-        this.occupyPlaceForImage({ x: 0, y: 0 }, images[idx], 2);
-      } else {
-        this.placeImageAtFreePosition(images[idx], 1);
-      }
-    });
-  }
-
-  /**
-   * Places images in right orientation (the large image is the first in the array, it goes to the right side of the grid)
-   *
-   * @param images - Array of image data objects to be placed in the grid
-   * @private
-   */
-  placeImagesInRightOrientation (images) {
-    images.forEach((image, idx) => {
-      if (idx === 0) {
-        this.occupyPlaceForImage({ x: this.columns - 2, y: 0 }, images[idx], 2);
-      } else {
-        this.placeImageAtFreePosition(images[idx], 1, true);
-      }
-    });
-  }
-
-  /**
-   * Places images in simple orientation (no large image in the grid, images come from left to right)
-   *
-   * @param images - Array of image data objects to be placed in the grid
-   * @private
-   */
-  placeImagesInSimpleOrientation (images) {
+    this.grid = {};
     images.forEach((image, idx) => {
       this.placeImageAtFreePosition(images[idx], 1);
     });

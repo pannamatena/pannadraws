@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import ImageTiler from './ImageTiler';
 import Lightbox from 'react-images';
 import _ from 'lodash';
 
-class ImageGallery extends Component {
+class ImageGalleryGrid extends Component {
 
   /**
    * Instantiates the Image Gallery
@@ -219,7 +218,7 @@ class ImageGallery extends Component {
     const gridProps = this.getGridProps();
     const smallTileWidth = this.getSmallWidthOfTile(containerWidth, gridProps);
 
-    const imageTiler = new ImageTiler(gridProps.layout, gridProps.columns);
+    const imageTiler = gridProps.imageTilerFactory();
     imageTiler.placeImagesInGrid(images);
 
     return (
@@ -250,10 +249,10 @@ class ImageGallery extends Component {
 /**
  * List of valid property types for Image Gallery component.
  */
-ImageGallery.propTypes = {
+ImageGalleryGrid.propTypes = {
   images: PropTypes.array.isRequired,
   galleryType: PropTypes.string,
   breakPoints: PropTypes.object.isRequired
 };
 
-export default ImageGallery;
+export default ImageGalleryGrid;
