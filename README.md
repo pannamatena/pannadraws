@@ -89,7 +89,8 @@ Clone the repo and run
 `npm install`
 
 ## Tests
-These should be added soon.
+Run unit tests with
+`npm run test`
 
 ## Licence
 You are free to use the gallery components and other code parts of the project as long as you give credit.
