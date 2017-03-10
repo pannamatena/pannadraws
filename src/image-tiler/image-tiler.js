@@ -158,12 +158,59 @@ class ImageTiler {
   /**
    * Places images in simple orientation (no large image in the grid, images come from left to right).
    *
-   * @param images - Array of image data objects to be placed in the grid
+   * @param {{imageThumb: string, image: string, imageAlt: string }[]} images - Array of image data objects to be placed in the grid
    */
   placeImagesInGrid (images) {
+    if (!Array.isArray(images)) {
+      throw new Error('Invalid input data. Expects an array.');
+    }
+
+    this.validateImageObjectFormat(images);
+    this.validateImageObjectKeys(images);
+    this.validateImageObjectValues(images);
+
     this.grid = {};
     images.forEach((image, idx) => {
       this.placeImageAtFreePosition(images[idx], 1);
+    });
+  }
+
+  /**
+   * Validates the items in the images array.
+   *
+   * @param {{imageThumb: string, image: string, imageAlt: string }[]} images - Array of image data objects to be placed in the grid
+   */
+  validateImageObjectFormat (images) {
+    images.forEach(imageObject => {
+      if (imageObject.constructor !== Object) {
+        throw new Error('Invalid input data. Expects an array of objects.');
+      }
+    });
+  }
+
+  /**
+   * Validates the keys in the image data objects in the images array.
+   *
+   * @param {{imageThumb: string, image: string, imageAlt: string }[]} images - Array of image data objects to be placed in the grid
+   */
+  validateImageObjectKeys (images) {
+    images.forEach(imageObject => {
+      if (!imageObject.imageThumb || !imageObject.image || !imageObject.imageAlt) {
+        throw new Error('Invalid input data. Expects an array of objects with keys imageThumb, image, imageAlt.');
+      }
+    });
+  }
+
+  /**
+   * Validates the value type in the image data objects in the images array.
+   *
+   * @param {{imageThumb: string, image: string, imageAlt: string }[]} images - Array of image data objects to be placed in the grid
+   */
+  validateImageObjectValues (images) {
+    images.forEach(imageObject => {
+      if (typeof imageObject.imageThumb !== 'string' || typeof imageObject.image !== 'string' || typeof imageObject.imageAlt !== 'string') {
+        throw new Error('Invalid input data. Expects an array of objects with string values.');
+      }
     });
   }
 
@@ -173,6 +220,9 @@ class ImageTiler {
    * @returns {number} The number of rows in the grid
    */
   getGridRows () {
+    if (Object.keys(this.grid).length === 0) {
+      return 0;
+    }
     // Object.Values crashes in Safari
     return Math.max(...Object.keys(this.grid).map(key => this.grid[key]).map(slot => slot.y)) + 1;
   }

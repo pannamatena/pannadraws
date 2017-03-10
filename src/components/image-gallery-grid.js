@@ -16,8 +16,6 @@ class ImageGalleryGrid extends Component {
       currentImage: 0
     };
 
-    this.resizeTimer = null;
-
     this.adjustContainerWidth = this.adjustContainerWidth.bind(this);
     this.closeLightbox = this.closeLightbox.bind(this);
     this.goToNextImage = this.goToNextImage.bind(this);
